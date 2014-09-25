@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Game</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="phaser.min.js"></script>
+        <script src="dancer.min.js"></script>
+        <script src="boot.js"></script>
+        <script src="preloader.js"></script>
+        <script src="menu.js"></script>        
+        <script src="difficult_menu.js"></script>   
+        <script src="submit.js"></script> 
+        <script src="game.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <style>
+            #container{
+                position:absolute;
+                z-index: -1;
+                cursor: default;
+            }
+
+            .pointer{
+                cursor: pointer !important;
+            }
+            .default{
+                cursor: default !important;
+            }
+        </style>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            var gameWidth = window.innerWidth * window.devicePixelRatio;
+            var gameHeight = window.innerHeight * window.devicePixelRatio;
+
+            var game = new Phaser.Game(gameWidth, gameHeight, Phaser.AUTO, '', null, true);
+
+            game.state.add('Boot', Scene.Boot);
+            game.state.add('Preloader', Scene.Preloader);
+            game.state.add('Menu', Scene.Menu);
+            game.state.add('Difficult_menu', Scene.Difficult_menu);
+            game.state.add('Submit', Scene.Submit);
+            game.state.add('Game', Scene.Game);
+            game.state.start('Boot');
+        </script>
+
+    </body>
+</html>
